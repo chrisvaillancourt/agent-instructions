@@ -18,8 +18,8 @@ pnpm dlx skills@latest add chrisvaillancourt/agent-instructions --skill agent-in
 # Project installation for OMP's .agents discovery and Claude Code.
 pnpm dlx skills@latest add chrisvaillancourt/agent-instructions --skill agent-instructions --agent universal claude-code
 
-# Example global installation for Claude Code and Codex.
-pnpm dlx skills@latest add chrisvaillancourt/agent-instructions --skill agent-instructions --global --agent claude-code codex
+# User-wide installation for OMP and Claude Code.
+pnpm dlx skills@latest add chrisvaillancourt/agent-instructions --skill agent-instructions --global --agent universal claude-code
 ```
 
 For npm users, replace `pnpm dlx` with `npx`; the remaining arguments are identical:
@@ -34,7 +34,9 @@ If you use Socket Firewall, prefix package execution with `sfw`, for example `sf
 
 The checked CLI has no dedicated `omp` agent target; `pi` means Pi, not OMP. Project-scoped `--agent universal` writes `.agents/skills/`, which OMP discovers.
 
-For user-wide OMP access, install the skill globally with `--agent universal`, inspect the CLI's reported destination, then add that skill container to OMP's `skills.customDirectories` setting. Preserve existing entries. Do not assume the universal global destination is `~/.agents/skills`: CLI versions can use `~/.config/agents/skills`. Alternatively, link only this installed skill into your active OMP agent directory's `skills/` folder. Do not overwrite an existing skill or change configuration blindly. See [harness notes](skills/agent-instructions/references/harnesses.md).
+For user-wide OMP and Claude Code access, use the global command above. If you already have the `skills` CLI installed, you can use `skills` in place of `pnpm dlx skills@latest`. The skill has been reported available in OMP after this installation without adding `skills.customDirectories`; no extra configuration is required when OMP already discovers it.
+
+Only if OMP does not discover the installed skill, inspect the CLI's reported destination and OMP's active skill search locations. If the installed container is outside those locations, add it to `skills.customDirectories`, preserving existing entries, or link only this skill into your active OMP agent directory's `skills/` folder. Do not assume the universal global destination is `~/.agents/skills`: CLI versions can use `~/.config/agents/skills`. Do not overwrite an existing skill or change configuration blindly. See [harness notes](skills/agent-instructions/references/harnesses.md).
 
 No global harness settings or installations are changed by cloning this repository.
 

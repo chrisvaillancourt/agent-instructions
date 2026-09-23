@@ -47,3 +47,9 @@ The reviewers did not reproduce runtime experiments. Their approval does not ext
 Made pnpm the default in installation, update, and maintenance examples while retaining npm/npx alternatives. Historical npm-based validation above remains unchanged.
 
 Verified with **pnpm 11.21.0** and **skills 1.7.0**: `sfw pnpm dlx skills@latest --version`, local `add --list`, and project-scoped `add --agent universal claude-code --copy --yes` all exited successfully. Both installed skill files and bundled references matched the source byte-for-byte. Disposable installations were removed; no user harness settings or installations changed. This verifies the package runner and installation paths, not additional harness runtime behavior.
+
+## 2026-09-23 — User-reported global OMP discovery
+
+The user installed with `skills add chrisvaillancourt/agent-instructions --skill agent-instructions --agent universal claude-code --global` and reported that the skill was available in OMP without needing to add `skills.customDirectories`. The README now treats that setting as troubleshooting, not a required installation step.
+
+This is user-reported discovery evidence, not an independently exercised invocation. The exact discovery path and active configuration were not inspected; this does not establish that every OMP version or profile discovers every universal global destination.
