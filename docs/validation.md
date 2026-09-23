@@ -41,3 +41,9 @@ Two independent read-only reviewers examined the complete initial repository thr
 - **Specification:** no actionable missing or incorrect requirements. The reviewer checked selected first-party article claims and installer guidance; video transcripts were not independently re-fetched.
 
 The reviewers did not reproduce runtime experiments. Their approval does not extend the execution claims above. Gitleaks 8.30.1 also scanned both outgoing commits with no leaks found. Commit authors and committers use the public GitHub noreply identity. A targeted content check found no absolute home paths, private organization identifiers, private artifact links, or private-key markers; actual local documentation links resolved.
+
+## 2026-09-23 — pnpm installation guidance
+
+Made pnpm the default in installation, update, and maintenance examples while retaining npm/npx alternatives. Historical npm-based validation above remains unchanged.
+
+Verified with **pnpm 11.21.0** and **skills 1.7.0**: `sfw pnpm dlx skills@latest --version`, local `add --list`, and project-scoped `add --agent universal claude-code --copy --yes` all exited successfully. Both installed skill files and bundled references matched the source byte-for-byte. Disposable installations were removed; no user harness settings or installations changed. This verifies the package runner and installation paths, not additional harness runtime behavior.

@@ -6,23 +6,29 @@ Use it to audit existing `AGENTS.md` / `CLAUDE.md` guidance or decide whether a 
 
 ## Install
 
-Requires Node.js/npm for the `skills` CLI. The skill itself has no executable dependencies. Review the [skill](skills/agent-instructions/SKILL.md) before installing; skills run with the permissions of their host agent.
+Requires Node.js and pnpm or npm for the `skills` CLI. Examples use pnpm by default, with npm/npx alternatives below. The skill itself has no executable dependencies. Review the [skill](skills/agent-instructions/SKILL.md) before installing; skills run with the permissions of their host agent.
 
 ```sh
 # Inspect available skills without installing.
-npx skills@latest add chrisvaillancourt/agent-instructions --list
+pnpm dlx skills@latest add chrisvaillancourt/agent-instructions --list
 
 # Interactive installation: choose your harnesses and scope.
-npx skills@latest add chrisvaillancourt/agent-instructions --skill agent-instructions
+pnpm dlx skills@latest add chrisvaillancourt/agent-instructions --skill agent-instructions
 
 # Project installation for OMP's .agents discovery and Claude Code.
-npx skills@latest add chrisvaillancourt/agent-instructions --skill agent-instructions --agent universal claude-code
+pnpm dlx skills@latest add chrisvaillancourt/agent-instructions --skill agent-instructions --agent universal claude-code
 
 # Example global installation for Claude Code and Codex.
-npx skills@latest add chrisvaillancourt/agent-instructions --skill agent-instructions --global --agent claude-code codex
+pnpm dlx skills@latest add chrisvaillancourt/agent-instructions --skill agent-instructions --global --agent claude-code codex
 ```
 
-If you use Socket Firewall, prefix package execution with `sfw`, for example `sfw npx skills@latest add ...`. Use your normal dependency approval policy. `@latest` is convenient but mutable; the tested version is recorded in [validation](docs/validation.md).
+For npm users, replace `pnpm dlx` with `npx`; the remaining arguments are identical:
+
+```sh
+npx skills@latest add chrisvaillancourt/agent-instructions --skill agent-instructions
+```
+
+If you use Socket Firewall, prefix package execution with `sfw`, for example `sfw pnpm dlx skills@latest add ...` or `sfw npx skills@latest add ...`. Use your normal dependency approval policy. `@latest` is convenient but mutable; the tested version is recorded in [validation](docs/validation.md).
 
 ### OMP user-wide installation
 
@@ -63,7 +69,7 @@ The skill is self-contained. An installed `writing-for-agents` skill can provide
 - [Maintenance](docs/maintenance.md): model/harness refresh procedure, behavioral scenarios, review, and publication checks.
 - [Validation](docs/validation.md): what has actually been exercised, with limitations.
 
-Update installed skills through your CLI's supported update workflow (`npx skills@latest update`; consult its help for scope and selection), then verify the active harness loads the new version. A repository update does not prove that existing sessions have refreshed their context.
+Update installed skills through your CLI's supported update workflow (`pnpm dlx skills@latest update`, or `npx skills@latest update` for npm users; consult its help for scope and selection), then verify the active harness loads the new version. A repository update does not prove that existing sessions have refreshed their context.
 
 ## License
 

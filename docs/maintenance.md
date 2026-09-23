@@ -18,10 +18,12 @@ Review after a material model release, harness loading/invocation change, skills
 Use a disposable directory outside your real projects and project-scoped installation. The source below is a local clone path; substitute your checkout. A dependency firewall such as Socket Firewall can prefix these commands with `sfw`.
 
 ```sh
-npx --yes skills@latest --version
-npx --yes skills@latest add /path/to/agent-instructions --list
-npx --yes skills@latest add /path/to/agent-instructions --skill agent-instructions --agent universal claude-code --copy --yes
+pnpm dlx skills@latest --version
+pnpm dlx skills@latest add /path/to/agent-instructions --list
+pnpm dlx skills@latest add /path/to/agent-instructions --skill agent-instructions --agent universal claude-code --copy --yes
 ```
+
+For npm users, replace `pnpm dlx` with `npx --yes`. The final `--yes` on the installation command belongs to `skills`, not the package runner.
 
 Confirm the canonical installed `SKILL.md` and its `references/harnesses.md` match the source; inspect the actual output paths rather than assuming global and project paths match. Follow every local Markdown link from the installed skill. Check that installation did not require the repository's `docs/` directory or another skill.
 
