@@ -32,3 +32,12 @@ Gitleaks **8.30.1**, downloaded through Socket Firewall and verified against the
 - No baseline-versus-candidate experiment establishes a performance, cost, or compliance improvement; no such claim is made.
 
 Future entries should name the tested revision and exact worker model where available, and distinguish installer checks, structural checks, simulated behavior, and full harness runs.
+
+### Independent review and history audit
+
+Two independent read-only reviewers examined the complete initial repository through **e123611**, including root commit **fea868b**:
+
+- **Standards/design/privacy:** no actionable findings against the documented principles, maintenance procedure, or agent-writing guidance; no privacy blocker in the nine publication files or commit metadata.
+- **Specification:** no actionable missing or incorrect requirements. The reviewer checked selected first-party article claims and installer guidance; video transcripts were not independently re-fetched.
+
+The reviewers did not reproduce runtime experiments. Their approval does not extend the execution claims above. Gitleaks 8.30.1 also scanned both outgoing commits with no leaks found. Commit authors and committers use the public GitHub noreply identity. A targeted content check found no absolute home paths, private organization identifiers, private artifact links, or private-key markers; actual local documentation links resolved.
